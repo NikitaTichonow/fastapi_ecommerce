@@ -14,7 +14,7 @@ router = APIRouter(prefix='/products', tags=['products'])
 
 
 @router.get('/')  # Метод получения всех товаров
-async def all_products(db: Annotated[Session, Depends(get_db)]):
+async def all_products(db: Annotated[AsyncSession, Depends(get_db)]):
     products = await db.scalars(select(Product).where(
         Product.is_active == True, Product.stock > 0))
     if products is None:
@@ -26,7 +26,7 @@ async def all_products(db: Annotated[Session, Depends(get_db)]):
 
 
 @router.post('/create')  # Метод создания товара
-async def create_products(db: Annotated[Session, Depends(get_db)], create_product: CreateProduct):
+async def create_products(db: Annotated[AsyncSession, Depends(get_db)], create_product: CreateProduct):
     await db.execute(insert(Product).values(name=create_product.name,
                                       description=create_product.description,
                                       price=create_product.price,
@@ -44,7 +44,7 @@ async def create_products(db: Annotated[Session, Depends(get_db)], create_produc
 
 # Метод получения товаров определенной категории
 @router.get('/{category_slug}')
-async def product_dy_category(db: Annotated[Session, Depends(get_db)], category_slug: str):
+async def product_dy_category(db: Annotated[AsyncSession, Depends(get_db)], category_slug: str):
     category = await db.scalar(select(Category).where(
         Category.slug == category_slug))
     if category is None:
@@ -63,7 +63,7 @@ async def product_dy_category(db: Annotated[Session, Depends(get_db)], category_
 
 # Метод получения детальной информации о товаре
 @router.get('/detail/{product_slug}')
-async def product_detail(db: Annotated[Session, Depends(get_db)], product_slug: str):
+async def product_detail(db: Annotated[AsyncSession, Depends(get_db)], product_slug: str):
     product = await db.scalar(select(Product).where(
         Product.slug == product_slug, Product.is_active == True, Product.stock > 0))
     if not product:
@@ -75,7 +75,7 @@ async def product_detail(db: Annotated[Session, Depends(get_db)], product_slug: 
 
 
 @router.put('/detail/{product_slug}')  # Метод изменения и удаления товара
-async def update_product(db: Annotated[Session, Depends(get_db)], product_slug: str,
+async def update_product(db: Annotated[AsyncSession, Depends(get_db)], product_slug: str,
                          update_product_model: CreateProduct):
     product_update = await db.scalar(select(Product).where(Product.slug == product_slug))
     if product_update is None:
@@ -100,7 +100,7 @@ async def update_product(db: Annotated[Session, Depends(get_db)], product_slug: 
 
 
 @router.delete('/delete')
-async def delete_product(db: Annotated[Session, Depends(get_db)], product_id: int):
+async def delete_product(db: Annotated[AsyncSession, Depends(get_db)], product_id: int):
     product_delete = await db.scalar(select(Product).where(Product.id == product_id))
     if product_delete is None:
         raise HTTPException(

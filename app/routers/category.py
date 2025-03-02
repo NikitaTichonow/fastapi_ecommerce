@@ -14,13 +14,13 @@ router = APIRouter(prefix='/category', tags=['category'])
 
 
 @router.get('/all_categories')  # Метод получения всех категорий
-async def get_all_categories(db: Annotated[Session, Depends(get_db)]):
+async def get_all_categories(db: Annotated[AsyncSession, Depends(get_db)]):
     categories = await db.scalars(select(Category).where(Category.is_active == True))
     return categories.all()
 
 
 @router.post('/create')  # Метод создания категории
-async def create_categories(db: Annotated[Session, Depends(get_db)], create_category: CreateCategory):
+async def create_categories(db: Annotated[AsyncSession, Depends(get_db)], create_category: CreateCategory):
     await db.execute(insert(Category).values(name=create_category.name,
                parent_id=create_category.parent_id, slug=slugify(create_category.name)))
     await db.commit()
@@ -29,7 +29,7 @@ async def create_categories(db: Annotated[Session, Depends(get_db)], create_cate
 
 
 @router.put('/update_category')  # Метод изменения категории
-async def update_category(db: Annotated[Session, Depends(get_db)], category_id: int, update_category: CreateCategory):
+async def update_category(db: Annotated[AsyncSession, Depends(get_db)], category_id: int, update_category: CreateCategory):
     category = await db.scalar(select(Category).where(Category.id == category_id))
     if category is None:
         raise HTTPException(
@@ -51,7 +51,7 @@ async def update_category(db: Annotated[Session, Depends(get_db)], category_id: 
 
 
 @router.delete('/delete')  # Метод удаления категории
-async def delete_categories(db: Annotated[Session, Depends(get_db)], category_id: int):
+async def delete_categories(db: Annotated[AsyncSession, Depends(get_db)], category_id: int):
     category = await db.scalar(select(Category).where(Category.id == category_id))
     if category is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
