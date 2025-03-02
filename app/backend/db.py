@@ -1,14 +1,18 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, DeclarativeBase
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+from sqlalchemy.orm import DeclarativeBase
 
 
-
-# Форма URL-адреса базы данных для PostgreSQL
-# engine = create_engine('postgresql+psycopg2://youuser:youpassword@localhost/youdb') 
-
-
-engine = create_engine('sqlite:///ecommerce.db', echo=True)
-SessionLocal = sessionmaker(bind=engine)
+engine = create_async_engine('postgresql+asyncpg://ecommerce2:postgres@localhost:5432/ecommerce2', echo=True)
+async_session_maker = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 class Base(DeclarativeBase):
     pass
+
+
+
+
+"""
+Подклчение к db sqlite
+engine = create_engine('sqlite:///ecommerce.db', echo=True) 
+SessionLocal = sessionmaker(bind=engine)
+"""
