@@ -2,13 +2,12 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, Asyn
 from sqlalchemy.orm import DeclarativeBase
 
 
-engine = create_async_engine('postgresql+asyncpg://ecommerce2:postgres@localhost:5432/ecommerce2', echo=True)
+engine = create_async_engine("postgresql+asyncpg://ecommerce2:postgres@localhost:5432/ecommerce2", echo=True)
 async_session_maker = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
+
 
 class Base(DeclarativeBase):
     pass
-
-
 
 
 """

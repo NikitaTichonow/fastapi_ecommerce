@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class CreateProduct(BaseModel):
-    name: str 
+    name: str
     description: str
     price: int
     image_url: str

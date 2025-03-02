@@ -9,7 +9,6 @@ async def welcome():
     return {"message": "My e-comerce app"}
 
 
-
 app.include_router(auth.router)
 app.include_router(category.router)
 app.include_router(products.router)
