@@ -1,0 +1,11 @@
+Log: [53e57823-778e-457f-979e-39e7ddcc1b6e:2025-03-03T23:16:22.004306+0300 - INFO - Successfully accessed / 
+Log: [b09d8ef8-2257-4163-b784-5e5ec083cbb0:2025-03-03T23:16:26.655878+0300 - INFO - Successfully accessed /docs 
+Log: [9b45a752-4367-4118-8209-055052dddf51:2025-03-03T23:16:26.968706+0300 - INFO - Successfully accessed /openapi.json 
+Log: [7872fbb5-625c-490c-a380-15600b8fa8ed:2025-03-03T23:16:36.377016+0300 - INFO - Successfully accessed /category/all_categories 
+Log: [79c92967-7b3e-4c28-bcaf-fd225acb65c5:2025-03-03T23:16:41.293952+0300 - WARNING - Request to /auth/read_current_user failed 
+Log: [2d213408-765f-4695-a942-5cab783d606c:2025-03-03T23:17:04.214259+0300 - INFO - Successfully accessed /auth/token 
+Log: [2623cba2-a28c-4119-af7b-d55edc8d2c0b:2025-03-03T23:17:22.279860+0300 - INFO - Successfully accessed /auth/read_current_user 
+Log: [e54775c9-aa8e-40e8-b4c3-c24930a38595:2025-03-03T23:18:10.826809+0300 - INFO - Successfully accessed /category/create 
+Log: [cfa4043c-ce3c-40b5-90f4-34bce6b7c6e0:2025-03-03T23:18:36.508645+0300 - WARNING - Request to /test failed 
+Log: [09b35587-0e75-4f8c-9615-8b583405bace:2025-03-03T23:18:44.190853+0300 - INFO - Successfully accessed /docs 
+Log: [4e98937d-0a8e-475a-b7af-17f9121d9e1b:2025-03-03T23:18:44.344582+0300 - INFO - Successfully accessed /openapi.json 
