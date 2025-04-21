@@ -9,3 +9,10 @@ Log: [e54775c9-aa8e-40e8-b4c3-c24930a38595:2025-03-03T23:18:10.826809+0300 - INF
 Log: [cfa4043c-ce3c-40b5-90f4-34bce6b7c6e0:2025-03-03T23:18:36.508645+0300 - WARNING - Request to /test failed 
 Log: [09b35587-0e75-4f8c-9615-8b583405bace:2025-03-03T23:18:44.190853+0300 - INFO - Successfully accessed /docs 
 Log: [4e98937d-0a8e-475a-b7af-17f9121d9e1b:2025-03-03T23:18:44.344582+0300 - INFO - Successfully accessed /openapi.json 
+Log: [271a026c-4bf1-47ed-9ec3-f19d03d3ce45:2025-03-06T22:20:18.674767+0300 - INFO - Successfully accessed / 
+Log: [a737056f-5b99-45b8-8f9d-82d4b895a12b:2025-03-06T22:20:22.955744+0300 - INFO - Successfully accessed /docs 
+Log: [3a424e82-332c-44c5-a428-e9c04ad31173:2025-03-06T22:20:23.806490+0300 - INFO - Successfully accessed /openapi.json 
+Log: [a1927c74-feeb-4875-85ec-879c5c6bad85:2025-03-06T22:20:51.098166+0300 - INFO - Successfully accessed /auth/token 
+Log: [5d190bbd-5ee1-48e0-a1d4-139b7a0f3aad:2025-03-06T22:21:04.515144+0300 - INFO - Successfully accessed /category/all_categories 
+Log: [0c0e6eb2-b7ca-4fda-a109-99d9d00bdb77:2025-03-06T22:44:31.020329+0300 - INFO - Successfully accessed /docs 
+Log: [effbdcd5-578b-4322-98ef-a0d7d335996d:2025-03-06T22:44:31.105689+0300 - INFO - Successfully accessed /openapi.json 
